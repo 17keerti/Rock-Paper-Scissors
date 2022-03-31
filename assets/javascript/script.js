@@ -1,56 +1,62 @@
-alert("Let's play Rock Paper Scissors Game ");
-
+//initialize variables starting from 0
 var wins = 0;
-var losses = 0;
 var ties = 0;
+var losses = 0;
 
-var playGame = function() {
-  var playerChoice = window.prompt("Pick R, P, or S:");
-
-  if (!playerChoice) {
-    return; 
-}
-
-playerChoice = playerChoice.toLowerCase(); 
-
+// Array of options for computer to pick from
 var rps = ["R", "P", "S"];
 
+var playGame = function() {
+  // Ask user for their choice
+  var playerChoice = prompt("Enter R, P, or S:");
 
+  // If user pressed Cancel, immediately end function
+  if (!playerChoice) {
+    return;
+  }
+
+  // Convert to uppercase to make comparisons easier
+  playerChoice = playerChoice.toUpperCase();
+
+  // Get random index from array of options
   var index = Math.floor(Math.random() * rps.length);
-  var chooseComputer= rps[index];
+  var computerChoice = rps[index];
 
+  alert("The computer chose " + computerChoice);
 
-window.alert("The computer picked " + chooseComputer);
+  // If choices are the same, it's a tie
+  if (playerChoice === computerChoice) {
+    ties++;
+    alert("It's a tie!");
 
-if (playerChoice === chooseComputer) {
-  ties++; 
-  window.alert("It's a tie! Try again."); 
-}
+  // Check every win condition for the player
+  } else if (
+    (playerChoice === "R" && computerChoice === "S") || 
+    (playerChoice === "P" && computerChoice === "R") || 
+    (playerChoice === "S" && computerChoice === "P")
+  ) {
+    wins++;
+    window.alert("You win!");
 
-else if (
-  (playerChoice === "R" && chooseComputer === "S") ||
-  (playerChoice === "P" && chooseComputer === "R") ||
-  (playerChoice === "S" && chooseComputer === "P") 
+  // If above conditions failed, assume player lost
+  } else {
+    losses++;
+    window.alert("You lost!");
+  }
 
-) {
-  wins++;
-  window.alert("Congrats! You won $$");
-}
+  // Print stats with line breaks
+  window.alert(
+    "Stats:\nWins: " + wins + "\nLosses: " + losses + "\nTies: " + ties
+  );
 
-else {
-  losses++;
-  window.alert("Sorry! You lost :( "); 
-}
+  // Ask user to play again
+  var playAgain = window.confirm("Play again?");
 
-window.alert(
-  "Scoreboard:\nWins: " + wins + "\nLosses: " + losses + "\nTies: " + ties 
-);
+  // If user pressed OK, run the function again
+  if (playAgain) {
+    playGame();
+  }
+};
 
-// var replay = window.alert("Would You Like To Play Again?"); 
-
-if(replay) {
-   playGame();
-}
-}; 
-
-playGame (); 
+// Run the game for the first time
+playGame();
