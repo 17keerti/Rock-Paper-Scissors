@@ -22,7 +22,8 @@ The completed application should meet the following criteria:
 
 * The computer's selection must be random to ensure a fair game.
 
-## Screenshot of the website
+
+
 ## What have we done on JavaScript file
  
  Step 1: we initialized variables starting from 0.
@@ -53,6 +54,7 @@ The completed application should meet the following criteria:
 
  Step 14: lastly, we declared the last function to run the game for the first time by repeating Step 3's function. 
 
+
 Documentation we used for reference: 
 
 * [MDN Web Docs on window.alert()](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert)
@@ -66,5 +68,5 @@ Documentation we used for reference:
 
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 
-Mini project partner 
-Partner: https://github.com/chaunnybby7
+
+Project partner: https://github.com/chaunnybby7
